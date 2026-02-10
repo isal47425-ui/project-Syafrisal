@@ -1,0 +1,306 @@
+:root {
+    --bg-dark: #05060f;
+    --primary-blue: #00d2ff;
+    --primary-purple: #3a47d5;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 25px 10%; background: rgba(5, 6, 15, 0.8);
+    backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 100;
+}
+
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav ul li a { text-decoration: none; color: #aaa; transition: 0.3s; }
+nav ul li a.active, nav ul li a:hover { color: var(--primary-blue); font-weight: bold; }
+
+.btn-hire {
+    background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+    border: none; padding: 10px 25px; border-radius: 50px; color: white; cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 100px 0 200px 0;
+    overflow: hidden;
+    background: radial-gradient(circle at 80% 20%, rgba(58, 71, 213, 0.2), transparent 40%);
+}
+
+.hero .container { display: flex; align-items: center; }
+
+.hero-content { flex: 1; }
+.hero-content h1 { font-size: 4.5rem; line-height: 1; margin: 15px 0; }
+.hero-content h1 span {
+    background: linear-gradient(to right, #ffffff,#00d2ff,#3a47d5,#00d2ff,#ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+    display: inline-block;
+    background-size: 200% auto;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.role {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #00d2ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    animation: pulseGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(0, 210, 255, 0.8), 0 0 30px rgba(0, 210, 255, 0.2);
+    }
+}
+
+.desc {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 450px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.btn-gradient {
+    padding: 15px 35px; border-radius: 50px; border: none;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+    color: white; font-weight: bold; cursor: pointer; margin-right: 15px;
+}
+
+.btn-outline {
+    padding: 15px 35px; border-radius: 50px; border: 1px solid #444;
+    background: transparent; color: white; cursor: pointer;
+}
+
+.hero-image { flex: 1; text-align: right; }
+.hero-image img { width: 100%; max-width: 500px; filter: drop-shadow(0 0 50px rgba(58, 71, 213, 0.3)); }
+
+/* Curve Divider */
+.curve {
+    position: absolute; bottom: 0; left: 0; width: 100%; line-height: 0;
+}
+.curve svg { position: relative; display: block; width: calc(100% + 1.3px); height: 150px; }
+.curve .shape-fill { fill: #0a0b1e; }
+
+/* About Section */
+.about { background-color: #0a0b1e; padding: 50px 0 100px 0; }
+.about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 50px; align-items: center; }
+
+.section-title { color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 20px; }
+.about-text h3 { font-size: 2.5rem; margin-bottom: 20px; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+
+.stat-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 30px 20px; border-radius: 20px; text-align: center;
+    backdrop-filter: blur(10px); transition: 0.3s;
+}
+
+.stat-card:hover { border-color: var(--primary-blue); transform: translateY(-5px); }
+.stat-card h2 { font-size: 2.5rem; color: var(--primary-blue); }
+
+.socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05); /* Efek kaca */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+/* Warna & Efek Hover Instagram (Gradasi Pink/Ungu) */
+.social-icon.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(214, 36, 159, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Warna & Efek Hover WhatsApp (Hijau) */
+.social-icon.whatsapp:hover {
+    background: #25D366;
+    border-color: transparent;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+    transform: translateY(-5px);
+}
+
+/* Warna & Efek Hover Umum */
+.social-icon:hover {
+    color: white;
+    transform: translateY(-5px);
+}
+
+/* --- HERO CONTENT STYLING --- */
+.hero {
+    position: relative;
+    padding: 80px 8% 150px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 4.5rem;
+    margin-bottom: 10px;
+}
+
+.name span {
+    background: linear-gradient(to right, #fff, var(--primary), var(--secondary), var(--primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* --- LOGO SOSIAL MEDIA (INSTAGRAM & WHATSAPP) --- */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+}
+
+/* Efek Khusus Logo Instagram */
+.icon-box.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(214, 36, 159, 0.4);
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Efek Khusus Logo WhatsApp */
+.icon-box.whatsapp:hover {
+    background: #25D366;
+    border-color: transparent;
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-5px) scale(1.1);
+}
+
+.icon-box:hover {
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* --- ABOUT & STATS CARD --- */
+.about-stats {
+    background-color: var(--bg-secondary);
+    padding: 100px 8%;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: 0.3s ease;
+}
+
+.card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card h3 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    border-color: var(--primary);
+    background: rgba(0, 210, 255, 0.05);
+    transform: translateY(-10px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-container { flex-direction: column-reverse; }
+    .name { font-size: 3rem; }
+    .stats-cards { grid-template-columns: 1fr; }
+    .social-icons { justify-content: center; }
+}
+
+/* SPLINE */
+.spline {
+  width: 600px;
+  height: 600px;
+}
